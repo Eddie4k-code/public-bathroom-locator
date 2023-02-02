@@ -22,7 +22,7 @@ export const Enter = ({location, setLocation}) => {
             },
 
             (error) => {
-                console.error(error);
+                setError(error.message);
 
             }
 
