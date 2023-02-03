@@ -8,7 +8,7 @@ export const BathroomsList = ({ location }) => {
     const navigate = useNavigate();
     const [bathrooms, setBathrooms] = useState([]);
     
-
+    /* Gets Bathrooms by using users location */
     const getBathrooms = async (long, lat) => {
         const options = {
             method: 'GET',
@@ -29,13 +29,12 @@ export const BathroomsList = ({ location }) => {
             console.error(error);
         });
     }
-
-
+    /* Checks if user had location verified otherwise they cannot access this component */
     useEffect(() => {
 
-        if (Object.keys(location.length != 0)) {
+        if (localStorage.getItem("location")) {
             getBathrooms(location.longitude, location.latitude);
-        } else {
+        } else if (!localStorage.getItem("location")) {
             navigate("/");
         }
 
@@ -47,8 +46,8 @@ export const BathroomsList = ({ location }) => {
 
    
 
-
-    if (bathrooms) {
+    /* We return this component if the bathrooms array is filled otherwise we return a loading screen*/
+    if (bathrooms.length > 0) {
 
         return (
 
@@ -77,7 +76,7 @@ export const BathroomsList = ({ location }) => {
         );
 
     } else {
-        return (<div>Loading</div>)
+        return (<div>Fetching Bathrooms....</div>)
     }
      
 }
