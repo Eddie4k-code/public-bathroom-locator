@@ -54,19 +54,23 @@ export const BathroomsList = ({ location }) => {
 
 
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 bg-gray-200 rounded-lg shadow-lg">
-                {bathrooms.map((bathroom) => (
-                    <div className="p-6 bg-white rounded-lg shadow-lg">
-                        <Bathroom
-                            name={bathroom.name}
-                            street={bathroom.street}
-                            city={bathroom.city}
-                            miles={Math.floor(bathroom.distance)}
-                            comment={bathroom.comment}
-                            directions={bathroom.directions}
-                        />
+            <div className="bg-gray-100 p-4">
+                <div className="container mx-auto py-8">
+                    <h1 className="text-3xl font-bold text-center mb-6">Bathrooms Near You</h1>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        {bathrooms.map((bathroom) => (
+                            <Bathroom
+                                key={bathroom.id}
+                                name={bathroom.name}
+                                street={bathroom.street}
+                                city={bathroom.city}
+                                miles={Math.floor(bathroom.distance)}
+                                comment={bathroom.comment}
+                                directions={bathroom.directions}
+                            />
+                        ))}
                     </div>
-                ))}
+                </div>
             </div>
 
 
