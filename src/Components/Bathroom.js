@@ -1,15 +1,26 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-export const Bathroom = ({ name, street, city, miles, comment, directions }) => {
+export const Bathroom = ({ name, street, city, miles, comment, directions, directionStreet, setDirectionStreet, directionCity, setDirectionCity}) => {
 
 
     const [copied, setCopied] = useState(false);
+    const navigate = useNavigate();
 
     const copyToClipboard = () => {
         navigator.clipboard.writeText(`${street}`);
         setCopied(true);
     };
 
+
+    //Updates our direction to city, street and navgiates to direction page
+    const handleGetDirections = (street, city) => {
+        setDirectionStreet(street);
+        setDirectionCity(city);
+        navigate(`/bathrooms/${street}${city}`);
+    }
+
+    
     return (
         
         <div className="bg-white rounded-md shadow-md overflow-hidden">
@@ -26,6 +37,17 @@ export const Bathroom = ({ name, street, city, miles, comment, directions }) => 
                 >
                     {copied ? 'Address Copied!' : 'Copy Address'}
                 </button>
+
+                <button
+                    className="mt-4 py-2 px-4 border border-gray-500 rounded-md text-gray-500 hover:text-white hover:bg-gray-500"
+                    onClick={() => handleGetDirections(street, city)}
+                >
+                    Get Directions
+                </button>
+
+
+
+
             </div>
         </div>
         

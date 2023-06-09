@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 
-export const BathroomsList = ({ location }) => {
+export const BathroomsList = ({ location, directionStreet, setDirectionStreet, directionCity, setDirectionCity}) => {
 
     const navigate = useNavigate();
     const [bathrooms, setBathrooms] = useState([]);
@@ -67,6 +67,10 @@ export const BathroomsList = ({ location }) => {
                                 miles={Math.floor(bathroom.distance)}
                                 comment={bathroom.comment}
                                 directions={bathroom.directions}
+                                setDirectionCity={setDirectionCity}
+                                directionCity={directionCity}
+                                setDirectionStreet={setDirectionStreet}
+                                directionStreet={directionStreet}
                             />
                         ))}
                     </div>

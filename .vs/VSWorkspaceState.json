@@ -2,9 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\public",
-    "\\src",
-    "\\src\\Components"
+    "\\src"
   ],
-  "SelectedNode": "\\src\\Components\\Bathroom.js",
+  "SelectedNode": "\\.env",
   "PreviewInSolutionExplorer": false
 }
