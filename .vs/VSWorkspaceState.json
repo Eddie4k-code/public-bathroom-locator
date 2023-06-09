@@ -1,9 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\public",
-    "\\src"
+    "\\src",
+    "\\src\\Components"
   ],
-  "SelectedNode": "\\.env",
+  "SelectedNode": "\\src\\Components\\ShowRoute.js",
   "PreviewInSolutionExplorer": false
 }
